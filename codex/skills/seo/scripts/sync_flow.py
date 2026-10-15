@@ -41,7 +41,7 @@ LOCK_REL = pathlib.Path("skills") / "seo-flow" / "references" / "flow-prompts.lo
 _FLOW_LINK_MAP = {
     "01-framework/flow-framework.md": "flow-framework.md",
     "10-references/bibliography.md": "bibliography.md",
-    "00-START-HERE.md": "../SKILL.md",
+    "00-START-HERE.md": "../WORKFLOW.md",
     "06-win/dual-surface-scorecard.md": None,
     "06-win/bofu-and-conversion-content.md": None,
 }

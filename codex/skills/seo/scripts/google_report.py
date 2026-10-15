@@ -1277,7 +1277,7 @@ def _build_executive_summary(domain, timestamp, data, report_type):
     for item in _coerce_items(summary.get("top_findings")):
         title = _finding_title(item)
         # Only label a severity when the finding actually carries one. Plain-string
-        # top_findings (the shape documented in seo-audit/SKILL.md) have no severity, and
+        # top_findings (the shape documented in seo-audit/WORKFLOW.md) have no severity, and
         # _finding_severity() falls back to "Info" -- which rendered every entry in the
         # "Critical Issues Found" box as "Info:", understating the whole section.
         if isinstance(item, dict) and item.get("severity"):

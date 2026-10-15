@@ -4,7 +4,7 @@
 Complements tests/test_manifest_consistency.py (counts and version triangulation) with
 reference-graph checks that no other tool covers:
 
-1. ``references/X`` mentions in SKILL.md and agent files resolve via the fallback chain
+1. ``references/X`` mentions in WORKFLOW.md and agent files resolve via the fallback chain
    own dir -> shared ``skills/seo/references/`` -> any skill's references dir (cross-skill
    resolutions are reported as info, dead ones as errors).
 2. ``research/X.md`` path mentions exist.
@@ -12,7 +12,7 @@ reference-graph checks that no other tool covers:
    enclosing extension's ``scripts/`` dir for files under ``extensions/<name>/``. A bare
    basename existing somewhere else in the tree does NOT count (this exact bug hid dead
    ``scripts/presets.py`` invocations before the 2026-07 full review).
-4. Routing tables in ``skills/seo/SKILL.md`` and ``docs/COMMANDS.md`` agree with each
+4. Routing tables in ``skills/seo/WORKFLOW.md`` and ``docs/COMMANDS.md`` agree with each
    other and with the skill directories on disk.
 5. ``agents/<name>.md`` path mentions exist in ``agents/`` or in any
    ``extensions/<ext>/agents/`` tree (``seo-newagent`` doc example whitelisted).
@@ -40,7 +40,7 @@ ORPHAN_SCRIPT_WHITELIST = {
     "portability_check.py", "agent_ux_check.py", "gbp_deprecation_lint.py",
     "release_sign.py", "verify_release.py", "consistency_check.py",
 }
-GENERIC_BASENAMES = {"README.md", "SKILL.md", "__init__.py", "LICENSE", "LICENSE.txt",
+GENERIC_BASENAMES = {"README.md", "WORKFLOW.md", "__init__.py", "LICENSE", "LICENSE.txt",
                      "plugin.json", "marketplace.json", "hooks.json"}
 DOC_EXAMPLE_AGENTS = {"seo-newagent"}
 LOCK_PATH = "skills/seo-flow/references/flow-prompts.lock"
@@ -71,7 +71,7 @@ def extension_root(rel):
 def check_references(files, md):
     ref_pat = re.compile(r'references/([A-Za-z0-9_\-./]+\.(?:md|html|json|txt|ya?ml))')
     errors, infos = [], []
-    carriers = [f for f in md if (f.startswith(("skills/", "extensions/")) and f.endswith("SKILL.md"))
+    carriers = [f for f in md if (f.startswith(("skills/", "extensions/")) and f.endswith("WORKFLOW.md"))
                 or f.startswith("agents/")]
     for f in carriers:
         base = os.path.dirname(f)
@@ -204,13 +204,13 @@ def check_runtime_invocations(texts):
 def check_routing(files):
     cmd_pat = re.compile(r'`/seo(?:\s+([a-z][a-z0-9-]*))?')
     tables = {src: {m for m in cmd_pat.findall(read(src)) if m}
-              for src in ("skills/seo/SKILL.md", "docs/COMMANDS.md")}
+              for src in ("skills/seo/WORKFLOW.md", "docs/COMMANDS.md")}
     skill_tokens = {d.split("/")[1][4:] for d in files
-                    if d.startswith("skills/seo-") and d.endswith("SKILL.md")}
+                    if d.startswith("skills/seo-") and d.endswith("WORKFLOW.md")}
     ext_tokens = {p.split("/")[3][4:] for p in files
                   if re.match(r'extensions/[^/]+/skills/seo-[^/]+/SKILL\.md$', p)}
     known = skill_tokens | ext_tokens
-    a, b = tables["skills/seo/SKILL.md"], tables["docs/COMMANDS.md"]
+    a, b = tables["skills/seo/WORKFLOW.md"], tables["docs/COMMANDS.md"]
     errors = []
     for c in sorted(a - b):
         errors.append(f"routing: `$seo {c}` in orchestrator but not docs/COMMANDS.md")

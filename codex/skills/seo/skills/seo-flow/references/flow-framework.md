@@ -70,7 +70,7 @@ You are an SEO strategist using the FLOW model. For the asset named "FLOW Framew
 
 ## See Also
 
-- [Start Here](../SKILL.md)
+- [Start Here](../WORKFLOW.md)
 - [Bibliography](bibliography.md)
 
 ## Sources

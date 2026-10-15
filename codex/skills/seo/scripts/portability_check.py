@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cross-platform portability lint for SKILL.md files.
+Cross-platform portability lint for WORKFLOW.md files.
 
 claude-seo skills run under Codex, but also Cursor / Cursor Cloud
 Agents / Google Antigravity / Gemini CLI / OpenAI Codex CLI / Cline /
@@ -18,7 +18,7 @@ ignored, not rejected):
   - ``compatibility`` (free text, e.g. "Requires the @ahrefs/mcp MCP server")
   - ``metadata``     (a dict; metadata.version is read by the consistency tests)
 
-The check walks every ``SKILL.md`` under ``skills/`` and ``extensions/``
+The check walks every ``WORKFLOW.md`` under ``skills/`` and ``extensions/``
 and reports portability findings. Severity:
 
   - ``error``: a harness will outright reject the file (missing required
@@ -54,13 +54,13 @@ _FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 
 
 def _find_skill_files() -> list[Path]:
-    """Every SKILL.md under skills/ and extensions/."""
+    """Every WORKFLOW.md under skills/ and extensions/."""
     paths: list[Path] = []
     for root in ("skills", "extensions"):
         base = REPO_ROOT / root
         if not base.is_dir():
             continue
-        paths.extend(base.rglob("SKILL.md"))
+        paths.extend(base.rglob("WORKFLOW.md"))
     return sorted(paths)
 
 
@@ -123,7 +123,7 @@ def check_one(path: Path) -> list[dict]:
         findings.append({
             "severity": "error", "path": relpath,
             "rule": "no-frontmatter",
-            "message": "SKILL.md must open with a YAML --- block",
+            "message": "WORKFLOW.md must open with a YAML --- block",
         })
         return findings
 
@@ -187,7 +187,7 @@ def check_one(path: Path) -> list[dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Cross-platform portability lint for claude-seo SKILL.md files."
+        description="Cross-platform portability lint for claude-seo WORKFLOW.md files."
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--strict", action="store_true",
@@ -213,7 +213,7 @@ def main() -> int:
         }, sys.stdout, indent=2)
         sys.stdout.write("\n")
     else:
-        print(f"Portability lint: {len(paths)} SKILL.md files checked")
+        print(f"Portability lint: {len(paths)} WORKFLOW.md files checked")
         print(f"  errors:   {error_count}")
         print(f"  warnings: {warning_count}")
         print(f"  info:     {info_count}")

@@ -105,7 +105,7 @@ Two operational requirements with concrete enforcement surfaces:
 
 1. **Merchant Center: AI-generated product images:** must carry IPTC
    `DigitalSourceType: TrainedAlgorithmicMedia` metadata. See
-   `${SEO_SKILL_ROOT}/skills/seo-images/SKILL.md` for the audit + injection pattern.
+   `${SEO_SKILL_ROOT}/skills/seo-images/WORKFLOW.md` for the audit + injection pattern.
 2. **AI-generated product titles and descriptions:** must be separately
    specified and labeled as AI-generated in the merchant feed.
 

@@ -9,7 +9,7 @@ label, and (b) inject the label where missing.
 
 Why a script and not just docs
 ==============================
-``skills/seo-images/SKILL.md`` documents the exiftool one-liner, but
+``skills/seo-images/WORKFLOW.md`` documents the exiftool one-liner, but
 audits should not depend on operators remembering to run it by hand.
 This wrapper exposes audit + inject as commands that integrate with
 the rest of claude-seo's CLI pattern and can be invoked from the

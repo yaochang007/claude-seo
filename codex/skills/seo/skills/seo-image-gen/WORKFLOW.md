@@ -23,7 +23,7 @@ This extension is built on [Claude Banana](https://github.com/AgriciDaniel/banan
 the standalone AI image generation skill for Codex.
 
 This skill has two components with distinct roles:
-- **SKILL.md** (this file): Handles interactive `$seo image-gen` commands for generating images
+- **WORKFLOW.md** (this file): Handles interactive `$seo image-gen` commands for generating images
 - **Agent** (`agents/seo-image-gen.md`): Audit-only analyst spawned during `$seo audit` to assess existing OG/social images and produce a generation plan (never auto-generates)
 
 ## Prerequisites

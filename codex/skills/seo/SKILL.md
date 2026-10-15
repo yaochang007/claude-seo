@@ -36,10 +36,10 @@ an absolute Python 3.10+ executable; `CODEX_SEO_DATA_DIR` selects a dedicated
 runtime directory. API configuration lives in `~/.config/codex-seo/`.
 Use existing connected APIs when available; never expose credentials in reports.
 
-Load `skills/seo-<mode>/SKILL.md` for the requested workflow, resolving its
+Load `skills/seo-<mode>/WORKFLOW.md` for the requested workflow, resolving its
 relative references from that workflow's directory. Shared references are in
-`skills/seo/references/`; schema templates are in `schema/`. Nested workflow
-SKILL.md files are reference material, not separately installed skills.
+`skills/seo/references/`; schema templates are in `schema/`. Nested WORKFLOW.md files are reference material and are not separately
+registered as skills.
 Use actual available Codex file, shell, web, browser and connector tools.
 Tool names in upstream recipes describe capabilities, not guaranteed API names.
 Optional extensions require their corresponding connected service; their
@@ -47,7 +47,7 @@ presence in a workflow does not mean that service is installed or authorized.
 
 ## Full audit
 
-Read `skills/seo-audit/SKILL.md` and shared `quality-gates.md`,
+Read `skills/seo-audit/WORKFLOW.md` and shared `quality-gates.md`,
 `cwv-thresholds.md`, and `eeat-framework.md` when relevant. Detect business type,
 render the homepage, discover sitemap URLs and crawl accessible internal pages,
 respecting robots.txt and server limits. Cap at 500 URLs and document coverage.
