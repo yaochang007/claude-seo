@@ -118,9 +118,6 @@ def _data_dir(root: Path) -> tuple[Path, str]:
     override = os.environ.get("CODEX_SEO_DATA_DIR")
     if override:
         return _configured_data_dir(override), "override"
-    plugin_data = os.environ.get("CODEX_SEO_DATA_DIR")
-    if plugin_data:
-        return _configured_data_dir(plugin_data), "plugin"
     if _is_plugin(root):
         if sys.platform == "win32":
             base = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local"))
