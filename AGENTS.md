@@ -1,3 +1,13 @@
+# Codex fork instructions
+
+For Codex, use the self-contained `codex/skills/seo/SKILL.md` entrypoint and its
+bundled resources. The original upstream instructions below document other
+harnesses; do not assume their tool aliases or install paths work in Codex.
+Validate the Codex bundle independently. Keep credentials, private user data,
+and audit artifacts out of this public repository.
+
+---
+
 # Claude SEO: Multi-Platform Agent Instructions
 
 > For **Cursor**, **Cursor Cloud Agents**, **Google Antigravity**, **Gemini CLI**,

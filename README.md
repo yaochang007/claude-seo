@@ -1,3 +1,13 @@
+# Codex SEO fork
+
+This fork adds a self-contained **Codex** skill in [`codex/skills/seo`](codex/skills/seo), derived from AgriciDaniel/claude-seo. The original upstream source remains below and is preserved for comparison.
+
+Install with Codex’s skill-installer from `yaochang007/claude-seo`, path `codex/skills/seo`. On the next turn, invoke `$seo audit https://example.com`. See the installed SKILL.md for setup and runtime commands. The bundle includes the workflows, specialist instructions, scripts, schema templates and reference data; it does not require a Claude installation.
+
+Changes include Codex-native invocation and delegation, an isolated runtime using `CODEX_SEO_PYTHON` / `CODEX_SEO_DATA_DIR`, optional connector handling, evidence and uncertainty requirements, and removal of promotional deliverable footers. Upstream MIT and resource-specific attribution/license notices are retained. Credentials and audit reports do not belong in this repository.
+
+---
+
 ![Claude SEO cover: a Claude Code command palette with /seo audit, schema, geo, content, and backlinks commands over a dark CRT panel](assets/cover.svg)
 
 # Claude SEO: SEO Skill for Claude Code

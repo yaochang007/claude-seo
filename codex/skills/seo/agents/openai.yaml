@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO for Codex"
+  short_description: "Evidence-based website SEO audits and action plans"
+  default_prompt: "Use $seo to audit this website and prioritize evidence-backed improvements."
